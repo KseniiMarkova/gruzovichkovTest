@@ -1,4 +1,4 @@
-import React, useState, useEffect from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "@material-ui/core";
 
 export default function Page(id, options, count, color, data) {
@@ -15,7 +15,7 @@ function MyWonderfulComponent(id, options, children, other) {
 
 	useEffect(() => {
 
-		if (id && options && options.params && options.params.fields && options.params.fields.isDynamic) {
+		if (id && options?.params?.fields?.isDynamic) {
 
 			setSumm(summ + 1);
 
@@ -24,16 +24,18 @@ function MyWonderfulComponent(id, options, children, other) {
 	});
 
 	return (
+		<React.Fragment>
+			<h1>Hello World!</h1>
 
-<h1>Hello World!</h1>
+			<Grid>
 
-<Grid>
+				<Grid xs={12}>{children}</Grid>
 
-<Grid xs={12}>{children}</Grid>
+				<Grid>{summ}</Grid>
 
-<Grid>{ summ }</Grid>
+			</Grid>
+		</React.Fragment>
 
-</Grid>
 
 	);
 
