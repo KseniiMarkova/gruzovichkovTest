@@ -7,6 +7,9 @@ export default function Page(props) {
 	const { id, options, count, color, data } = props;
 	const other = {count, color, data};
 
+	const message = 'Hello from SSR';
+	console.log(message);
+
 	return <MyWonderfulComponent id={id} options={options} count={count} color={color} data={data}>I'm text from a component</MyWonderfulComponent>
 
 }
@@ -26,21 +29,20 @@ function MyWonderfulComponent(props) {
 
 		}
 
-	});
+	}, []);
 
 	return (
 		<React.Fragment>
 			<Typography variant="h1" color="red">Hello World!</Typography>
 
-			<Grid>
+			<Grid container>
 
-				<Grid xs={12}>{props.children}</Grid>
+				<Grid item xs={12}>{props.children}</Grid>
 
-				<Grid>{summ}</Grid>
+				<Grid item>{summ}</Grid>
 
 			</Grid>
 		</React.Fragment>
-
 
 	);
 
