@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
-import Grid from "@material-ui/core";
+import {Grid} from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
-export default function Page(id, options, count, color, data) {
+export default function Page(props) {
 
-	return <MyWonderfulComponent id="id" options="options" count="count" color="color" data="data">I'm text from a component</MyWonderfulComponent>
+	const { id, options, count, color, data } = props;
+	const other = {count, color, data};
+
+	return <MyWonderfulComponent id={id} options={options} count={count} color={color} data={data}>I'm text from a component</MyWonderfulComponent>
 
 }
 
-function MyWonderfulComponent(id, options, children, other) {
+function MyWonderfulComponent(props) {
 
+	const { id, options, other } = props;
 	const { count } = other;
 
 	const { summ, setSumm } = useState(count);
@@ -25,11 +30,11 @@ function MyWonderfulComponent(id, options, children, other) {
 
 	return (
 		<React.Fragment>
-			<h1>Hello World!</h1>
+			<Typography variant="h1" color="red">Hello World!</Typography>
 
 			<Grid>
 
-				<Grid xs={12}>{children}</Grid>
+				<Grid xs={12}>{props.children}</Grid>
 
 				<Grid>{summ}</Grid>
 
