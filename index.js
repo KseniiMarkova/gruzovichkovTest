@@ -10,7 +10,7 @@ export default function Page(props) {
 	const message = 'Hello from SSR';
 	console.log(message);
 
-	return <MyWonderfulComponent id={id} options={options} count={count} color={color} data={data}>I'm text from a component</MyWonderfulComponent>
+	return <MyWonderfulComponent id={id} options={options} other={other} message={message}>I'm text from a component</MyWonderfulComponent>
 
 }
 
@@ -18,7 +18,6 @@ function MyWonderfulComponent(props) {
 
 	const { id, options, other } = props;
 	const { count } = other;
-
 	const { summ, setSumm } = useState(count);
 
 	useEffect(() => {
